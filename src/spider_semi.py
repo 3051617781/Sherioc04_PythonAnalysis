@@ -1,8 +1,9 @@
 '''
-@FileName  :spider_semi.py
-@Note      :半自动化爬虫, 需要cookie失效后手动重置
-@Author    :人工智能2201 张杰 0122210880325
-@Time      :2023/11/3
+@FileName   :spider_semi.py
+@Note       :半自动化爬虫
+@Author     :人工智能2201 张杰 
+@Log        :<2023/11/2> 半自动化爬虫, cookie失效后手动重置, 1h内成功爬取所有热门城市
+
 '''
 import requests
 import time #用于sleep
@@ -21,18 +22,18 @@ INDEX_URL = 'https://www.zhipin.com/'
 
 #所有城市信息
 CITY_SITE_URL = 'https://www.zhipin.com/wapi/zpgeek/common/data/city/site.json' #url
-DATA_CITY_SITE = 'data/semi/city.json'  #保存结果path
+DATA_CITY_SITE = 'data/city.json'  #保存结果path
 
 #待分析数据信息
 BASE_URL = 'https://www.zhipin.com/wapi/zpgeek/search/joblist.json?scene=1&query=AI&city={city}&experience=&payType=&partTime=&degree=&industry=&scale=&stage=&position=&jobType=&salary=&multiBusinessDistrict=&multiSubway=&page={page}&pageSize=30' #url
-DATA_CITY_JOBS = 'data/semi/city_jobs/' #结果保存path
+DATA_CITY_JOBS = 'data/semi/data.csv' #结果保存path
 
 
 def get_cities()->list:
     '''
-    爬取所有城市代码信息（保存到 DATA_CITY_SITE)
-    选取热门城市，并返回对应代码信息列表
-    :return: list
+    爬取所有城市代码信息
+    选取热门城市
+    :return: list 热门城市 
     '''
     print('start get city_site data')
     # 保存所有城市对应json数据到city_urls.json中
@@ -99,7 +100,7 @@ def get_job_details(urls, city_code):
     :return: None
     '''
     result = []
-    with open(DATA_CITY_JOBS+'_{code}.json'.format(code=city_code),'w',encoding='utf-8')as f:
+    with open(DATA_CITY_JOBS,'a',encoding='utf-8')as f:
 
         headers = HEADERS
 
