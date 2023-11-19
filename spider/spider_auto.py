@@ -22,9 +22,9 @@ from selenium.webdriver import ActionChains
 from lxml import etree
 
 BASE_URL = 'https://www.zhipin.com/web/geek/job?query=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD&city={city}'
-DATA_CITY_SITE = 'data/city.json'  
+DATA_CITY_SITE = 'spider/data/city.json'  
  
-DATA_PATH ='data/auto/data.csv'
+DATA_PATH ='spider/data/auto/data.csv'
 
 class spider_auto(object):
     def __init__(self) -> None:

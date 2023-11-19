@@ -1,40 +1,116 @@
-# Sherioc04_PythonAnalysis
-人工智能AI岗位全国城市区域分布以及薪资分布可视化
-### 论题
+# Sherioc04_PythonAnalysis 
+## 项目描述
 
-人工智能AI岗位全国城市区域分布以及薪资分布可视化
+项目：全国热门城市人工智能AI岗位数据分析与可视化
 
-### 项目背景
+github地址： https://github.com/3051617781/Sherioc04_PythonAnalysis.git
 
-随着ChatGPT的爆火，新一轮AI浪潮席卷而来，各大厂商也逐步推出了自己的人工智能大模型，AI人才的需求也因此逐渐增加。尽管AI人才的需求量庞大、平均收入可观，但是AI从业者的地域分布和薪资以及学习要求与传统软件行业有着很大的不同，因此对AI岗位在全国城市分布以及薪资情况分析是有必要的。
+介绍：通过爬取招聘网站（boss直聘https://www.zhipin.com/）热门城市AI岗位信息，对数据进行清洗，分析并可视化全国热门城市人工智能AI岗位的学历要求、工作经验、公司规模、技能要求、薪资之间的关系。
 
-### 数据来源
+## 如何成功运行项目
 
-使用网络爬虫爬取boss直聘( )全国AI招聘数据
-### 程序功能
+1、安装第三方库对应版本
 
-1、爬取boss直聘AI招聘数据
+```python
+requests	(2.31.0)
+numpy   	(1.26.0)
+pandas 		(2.1.0)
+re			(2.2.1)
+jupyter 	(1.0.0)
+IPython		(8.17.2)
+selenium 	(4.15.0)
+jsonpath	(0.82.2)
+lxml		(4.9.3)
+pyechart 	(2.0.4)
+```
 
-2、对数据进行预处理
+2、运行爬虫（已有数据，不必再次爬取）
 
-3、对数据进行分析与可视化
+```python
+1、打开project
+2、运行spider文件夹下的spider_semi.py 或 spider_auto.py
+3、爬取的数据保存在spider/data文件夹下
 
-4、建立预测回归
+说明：由于全自动auto爬虫ip限制，故使用半自动爬虫semi并将结果已经放于analysis的data文件夹下，无需进行爬取
+```
 
-### 第三方库
+3、运行数据分析与可视化
 
-
-
-### 数据爬取
-
-### 
-
-### 数据预处理
-
-
-
-### 数据分析与可视化
-
+```java
+1、进入到analysis文件夹
+2、打开jupyter notebook
+3、运行analysis.ipynb
+4、可视化html输出在html文件夹中，notebook同时内嵌显示
+```
 
 
-### 建立预测模型
+
+项目结构
+
+```pthon
+│  README.md
+│
+├─picture  								# README.md图片文件夹
+│
+├─analysis		# 数据分析
+│  │  analysis.ipynb					
+│  │
+│  ├─.ipynb_checkpoints
+│  │      analysis-checkpoint.ipynb
+│  │
+│  ├─data								# 已爬取好的csv数据文件夹
+│  │  │  data.csv 						
+│  │  │
+│  │  └─.ipynb_checkpoints
+│  │          data-checkpoint.csv
+│  │
+│  └─html 								# 生成的可视化html文件夹
+│
+└─spider 		# 爬虫
+    │  chromedriver.exe
+    │  spider_auto.py
+    │  spider_semi.py
+    │
+    └─data								# 爬虫爬取结果文件夹
+```
+
+
+
+## 结果图片
+
+- 爬取过程
+
+  ![auto](picture/auto.png)
+
+- 饼图
+
+  ![education_cnt](picture/education_cnt.png)
+
+  ![experience_cnt](picture/experience_cnt.png)
+
+  ![people_cnt](picture/people_cnt.png)
+
+- 箱线图
+
+  ![salary_company](picture/salary_company.png)
+
+  ![salary_education](picture/salary_education.png)
+
+  ![salary_experience](picture/salary_experience.png)
+
+- 词云图
+
+  ![cloud](picture/cloud.png)
+
+- 3d柱状图
+
+  ![three](picture/three.png)
+
+- 地图
+
+  ![map](picture/map.png)
+
+## 
+
+
+
